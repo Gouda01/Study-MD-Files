@@ -18,11 +18,31 @@ x = 5
 
 1. Can contain both letter and numbers
 
-2. Have begin with letter and not allow to begin with number (x2 = 5  allow , 2x = 5 not allow)
+2. Have begin with letter and not allow to begin with number 
 
-3. You can use underscore ( x_y = 5)
+   ```python
+   #Allowed variable
+   x2 = 5
+   #Not allowed variable
+   2x = 5
+   ```
 
-4. You can use uppercase but remember python is case sensitive which means x = 5  not  X = 5 
+3. You can use underscore 
+
+   ```python
+   x_y = 5
+   ```
+
+   
+
+4. You can use uppercase but remember python is case sensitive which means  
+
+   ```python
+   x = 5
+   X = 10
+   ```
+
+   
 
 5. You cant use reserved words
 
