@@ -114,4 +114,4 @@ type(c)
 <class 'dict'>
 ```
 
-![Python Variables](D:\Django 5\Study-MD-Files\Study-MD-Files\Python Variables.jpg)
+![Python Variables](Python%20Variables.jpg)
