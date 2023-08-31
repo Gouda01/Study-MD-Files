@@ -114,3 +114,4 @@ type(c)
 <class 'dict'>
 ```
 
+![](F:\Old Hard\Courses\Python\Python Mine Course\Study-MD-Files\Python Variables.jpg)
