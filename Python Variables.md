@@ -46,7 +46,9 @@ x = 5
 
 5. You cant use reserved words
 
-   ![](resvered-words-in-python.png)
+   
+   
+   ![resvered-words-in-python](Python%20Variables/resvered-words-in-python.png)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -114,4 +116,8 @@ type(c)
 <class 'dict'>
 ```
 
+<<<<<<< HEAD
 ![](Python Variables.jpg)
+=======
+![Python Variables](Python%20Variables/Python%20Variables.jpg)
+>>>>>>> c78dba0274f03dba9d788fb5f8cd73902b459cd5
