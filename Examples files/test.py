@@ -1,6 +1,13 @@
-x = int(input('Enter your marke : '))
+x = float(input('Enter your marke : '))
 
-if x in list(range(1,100)) :
+if x in range(1,100) :
     print ('True')
 else :
     print('Not allow')
+
+x = float(input("Enter your mark: "))
+
+if int(x) in range(100):
+    print("True")
+else:
+    print("False")
