@@ -34,7 +34,7 @@ print(s1.power(4,2))
 - Add mark
 - Get Marks Avg.
 '''
-
+'''
 class Students ():
     def __init__(self,name):
         print(f'Welcome {name}')
@@ -58,3 +58,44 @@ s2.add_mark(50)
 s2.add_mark(70)
 s2.add_mark(90)
 s2.marks_agv()
+
+'''
+class BankCustomers :
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+        print(f'Welcome {self.name}')
+
+    def show_details (self):
+        print(f'Customer Name\t\t:  {self.name}')
+        print(f'Customer Age\t\t:  {self.age}')
+        print (f'Customer Balance\t: {self.balance}')
+
+
+class Bank (BankCustomers):
+    def __init__(self,name,age):
+        super().__init__(name,age)
+        self.balance = 0
+        
+    def desposite (self,amount):
+        self.balance += amount
+        print(self.balance)
+
+    def withdraw (self,amount) :
+        if amount > self.balance :
+            print('Sorry your Balance not allow try again other amount')
+            return
+
+        self.balance -= amount
+        print(self.balance)
+        self.show_details()
+
+    
+
+C1 = Bank('Mohamed','35')
+C1.desposite(5000)
+C1.desposite(10000)
+C1.withdraw(7000)
+print('===========================')
+C1.show_details()
+
