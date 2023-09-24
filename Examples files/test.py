@@ -24,8 +24,30 @@ def divided_numbers (x,y) :
 divided_numbers(5,6)
 '''
 
+'''
 def muli_table (x,y):
     for n in range(x,y) :
         print (x)
 
 muli_table(1,10)
+'''
+
+names = ['ahmed','ali','mahmoud','aid','hassan']
+
+# Normal List :
+new_names = []
+for x in names :
+    new_names.append(x.upper())
+
+# List Comprehension
+
+new_names1 = [x.upper() for x in names]
+new_names2 = [x.upper() for x in names if len(x) > 3]
+new_names3 = [x.upper() if len(x) > 3 else '.............' for x in names]
+
+
+
+print(new_names)
+print(new_names1)
+print(new_names2)
+print(new_names3)
