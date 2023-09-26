@@ -33,5 +33,33 @@ except Exception:
 
 
 '''
+'''
+file = open('test.txt','r')
+#print(file.readlines())
+
+data = file.readlines()
+for x in data :
+    print (x)
+'''
+
+'''
+file = open('test.txt','w')
+file.write('\nWelcome to out file')
+file.close()
+'''
+
+'''
+file = open('test.txt','a')
+file.write('\nWelcome to out file')
+file.close()
+
+'''
+
+# We can use it without close :
+with open('test.txt','a') as file :
+    file.write('\nWelcome With open')
+
+
+
 
 
