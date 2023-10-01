@@ -1,4 +1,6 @@
-'''
+#### Date And times in Python :
+
+```python
 import datetime
 
 today = datetime.date.today()
@@ -12,42 +14,48 @@ mydate = datetime.date(2008,10,4)
 print (mydate)
 
 # To add date :
-
 week = datetime.timedelta(days=7)  # Use to add 7 days
 add_hours = datetime.timedelta(hours=24) # Use to add hours
 
 print(mydate + week)
 print(mydate + add_hours)
+```
 
-'''
 
-'''
+
+#### Files And Folders in Python :
+
+```python
 import os
 # To Create Folder :
-# os.mkdir('test')
+os.mkdir('test')
 
 # To Print The Path which i work in it
-#print(os.getcwd())
+print(os.getcwd())
 
 # To rename file using os
-#os.rename('test2.txt','test3.txt')
+os.rename('test2.txt','test3.txt')
 
 # To create folder or folders in path using os :
-#os.makedirs('test/folder1/folder2/folder3')
+os.makedirs('test/folder1/folder2/folder3')
 
 # To remove folder but the folder must be empty :
-#os.rmdir('test/folder1/folder2/folder3')
+os.rmdir('test/folder1/folder2/folder3')
 
 # To remove all path :
-#os.removedirs('test/folder1/folder2')
+os.removedirs('test/folder1/folder2')
 
+# To display everything in path or direction
 d = "C:/Users/goda6/Downloads"
 print(os.listdir(d))
 
-'''
+```
 
-'''
 
+
+#### The Dir the directory and display all in the path in list :
+
+```python
 import os
 
 d = "C:/Users/goda6/Downloads"
@@ -56,14 +64,13 @@ for dirpath , dirname , filename in os.walk(d):
     print(f'Path is : {dirpath}')
     print(f'Name is : {dirname}')
     print(f'File is : {filename}')
-'''
+```
 
 
 
+#### The Task To make folder For every type And move file in it :
 
-
-'''
-
+```python
 import os
 import shutil
 
@@ -88,15 +95,13 @@ for file in os.listdir('.'):
     elif file.endswith(('.ttf','.otf')) :
         os.makedirs('Fonts',exist_ok=True)
         shutil.move(file,'Fonts')
-
-'''
-
+```
 
 
 
+#### The Task To make folder For every type And move file in it :
 
-'''
-
+```python
 import os
 import shutil
 import mimetypes
@@ -113,33 +118,13 @@ for file in os.listdir('.'):
         else :
             os.makedirs('Others', exist_ok=True)
             shutil.move(file,'Others')
-'''
+```
 
 
 
-'''
-import os
-import shutil
-import filetype
+#### To Test which function is the fast :
 
-
-os.chdir('test_files2')
-for file in os.listdir('.'):
-    #kind = filetype.guess(file).EXTENSION
-    kind = filetype.guess(file).mime
-    if kind :
-        type_name = kind.split('/')[0]
-        os.makedirs(type_name, exist_ok=True)
-        shutil.move(file,type_name)
-    else :
-        os.makedirs('Others', exist_ok=True)
-        shutil.move(file,'Others')
-    #print('File MIME type: %s' % kind.MIME)
-    
-''' 
-
-# To test Which function is more fast :
-
+```python
 import timeit
 
 def func1 ():
@@ -162,8 +147,5 @@ def func3 () :
 print(timeit.timeit(func1,number=10000))
 print(timeit.timeit(func2,number=10000))
 print(timeit.timeit(func3,number=10000))
-
-
-
-
+```
 
