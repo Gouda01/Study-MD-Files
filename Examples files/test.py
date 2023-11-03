@@ -114,6 +114,8 @@ c1.withdraw(7000)
 c1.show_details()
 
 '''
+
+'''
 class Customers :
     def __init__(self,name,age) :
         print(f'Welcome {name}')
@@ -122,12 +124,12 @@ class Customers :
         
 
     def show_details (self):
-        print(f'''
+        print(f#
     Customer Name       : {self.name}
     Customer age        : {self.age}
     Customer balance    : {self.balance}
 
-''')
+#)
 
 
 
@@ -155,3 +157,59 @@ c1.deposite(5000)
 c1.deposite(10000)
 c1.withdraw(7000)
 c1.show_details()
+
+'''
+
+
+class Game :
+    def __init__(self):
+        while True :
+            print('''
+    Welcome to our Game please Choose the game number :
+            1 - No Dublicate sentence 
+            2 - Numbers
+            3 - Exit the Game
+            ''')
+            while True :
+                user_choice = int(input('Enter Game Number : '))
+                if user_choice in range (1,4):
+                    break
+                else :
+                    print ('Please Enter number between 1 to 3')
+
+            
+            if user_choice == 1 :
+                self.no_deplicate_sentence()
+            elif user_choice == 2 :
+                self.my_numbers()
+            elif user_choice == 3 :
+                print('Goodbye ...... ')
+                break
+
+            play_again = input('Press any key to play again or press n to Exit : ')
+            if play_again == 'n' :
+                print('Goodbye ...... ')
+                break
+
+                
+            
+    def no_deplicate_sentence (self) :
+        sentence = input('Enter your sentence : ')
+        words = sentence.split(' ')
+        new_words = []
+        for x in words :
+            if x not in new_words :
+                new_words.append(x)
+        new_sentence = " ".join(new_words)
+        print(new_sentence)
+
+    def my_numbers (self):
+        first_number = int(input('Enter your first number : '))
+        second_number = int(input('Enter your second number : '))
+
+        for x in range (1,101) :
+            if x % first_number == 0 and x % second_number == 0 :
+                print(x)
+
+
+s1 = Game()

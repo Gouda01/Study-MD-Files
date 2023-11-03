@@ -1,3 +1,5 @@
+'''
+
 names = ['ahmed','ali','mahmoud','aid','hassan']
 new_names = []
 
@@ -68,6 +70,47 @@ def mysum  (x,y):
 
 result2 = reduce(mysum,numbers)
 print(result2)
+
+'''
+
+names = ['mohamed','ahmed','ali','ziad','aid']
+
+new_names = []
+for x in names :
+    new_names.append(x.upper())
+
+print(new_names)
+
+new_names1 = [x.upper() for x in names ]
+print(new_names1)
+
+def upper_case(x):
+    return x.upper()
+
+def start_with (x) :
+    if x.startswith('a') :
+        return x
+    
+def word_len (x):
+    if len(x) <= 3 :
+        return x
+
+
+new_names2 = map(upper_case,names)
+new_names3 = filter(start_with,names)
+new_names4 = filter(word_len,names)
+
+print(list(new_names2))
+print(list(new_names3))
+print(list(new_names4))
+
+salary = {'mohamed':3000,'ahmed':4000 ,'mahmoud':5000}
+new_salary = {k:v*1.25 for (k,v) in salary.items()}
+
+print(new_salary)
+
+
+
 
 
 
