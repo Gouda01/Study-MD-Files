@@ -50,6 +50,44 @@ data = Product.objects.filter(price__range = (80,83))
 
 #### <u>Relation :</u>
 
-###### 
+##### لعرض كل المنتجات اللي البراند بتاعها ( علاقة )  الاي دي بتاعة يساوي 5
 
-###### 
+```django
+data = Product.objects.filter(brand__id = 5)
+```
+
+##### لعرض كل المنتجات اللي البراند بتاعها ( علاقة )  الاسم بتاعة يساوي Apple
+
+```django
+data = Product.objects.filter(brand__name = 'Apple')
+```
+
+##### لعرض كل المنتجات اللي البراند بتاعها ( علاقة )  الاي دي بتاعة اكبر من 200
+
+```django
+data = Product.objects.filter(brand__id__gt = 200)
+```
+
+
+
+#### <u>Text :</u>
+
+##### لعرض كل المنتجات اللي الاسم فيها بيحتوي علي كلمة Joseph
+
+```django
+data = Product.objects.filter(name__contains = 'Joseph')
+```
+
+##### لعرض كل المنتجات اللي الاسم فيها بيبدأ بكلمة Joseph
+
+```django
+data = Product.objects.filter(name__startswith = 'Joseph')
+```
+
+##### لعرض كل المنتجات اللي الاسم فيها بتنتهي بكلمة Joseph
+
+```django
+data = Product.objects.filter(name__endswith = 'Joseph')
+```
+
+##### 
