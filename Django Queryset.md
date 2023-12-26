@@ -90,4 +90,43 @@ data = Product.objects.filter(name__startswith = 'Joseph')
 data = Product.objects.filter(name__endswith = 'Joseph')
 ```
 
-##### 
+##### لعرض كل المنتجات اللي السعر فيها بيكون فارغ 
+
+```django
+data = Product.objects.filter(price__isnull = True)
+```
+
+##### لعرض كل المنتجات اللي السعر فيها بيكون غير فارغ 
+
+```django
+data = Product.objects.filter(price__isnull = False)
+```
+
+##### لعرض كل المنتجات اللي السعر فيها بيكون غير فارغ 
+
+```django
+data = Product.objects.filter(price__isnull = False)
+```
+
+
+
+##### <u>Date:</u>
+
+##### لعرض كل المنتجات سنة معينة او شهر معين او يوم معين 
+
+```django
+data = Product.objects.filter(created_at__year = 2022) 
+data = Product.objects.filter(created_at__month = 2) 
+data = Product.objects.filter(created_at__day = 12) 
+```
+
+
+
+##### <u>*Complex Queries*:</u>
+
+##### لعرض كل المنتجات اللي الفلاج فيها بيكون جديد والسعر اكبر من 98 (يطبق شرطين) 
+
+```django
+data = Product.objects.filter(flag = 'New',price__gt = 98) 
+```
+
