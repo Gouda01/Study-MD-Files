@@ -127,6 +127,143 @@ data = Product.objects.filter(created_at__day = 12)
 ##### لعرض كل المنتجات اللي الفلاج فيها بيكون جديد والسعر اكبر من 98 (يطبق شرطين) 
 
 ```django
-data = Product.objects.filter(flag = 'New',price__gt = 98) 
+data = Product.objects.filter(flag = 'New',price__gt = 98)
+OR
+data = Product.objects.filter(flag = 'New').filter(price__gt = 98)
+```
+
+##### لعرض كل المنتجات اللي الفلاج فيها بيكون جديد والسعر اكبر من 98 (يطبق في حالة الشرطين معا) 
+
+```django
+from django.db.models import Q
+
+data = Product.objects.filter(
+        Q(flag = 'New') &
+        Q(price__gt = 98)
+        ) 
+```
+
+##### لعرض كل المنتجات اللي الفلاج فيها بيكون جديد  أو السعر اكبر من 98 (يطبق في حالة الشرط الاول او الشرط الثاني) 
+
+```django
+from django.db.models import Q
+
+data = Product.objects.filter(
+        Q(flag = 'New') |
+        Q(price__gt = 98)
+        ) 
+```
+
+##### لعرض كل المنتجات اللي الفلاج فيها بيكون غير ~ جديد  أو السعر اكبر من 98 (يطبق في حالة الشرط الاول او الشرط الثاني) 
+
+```django
+from django.db.models import Q
+
+data = Product.objects.filter(
+        ~Q(flag = 'New') |
+        Q(price__gt = 98)
+        ) 
+```
+
+
+
+##### <u>field reference:</u>
+
+##### لعرض كل المنتجات اللي الكمية فيها بتساوي السعر  (المقارنة بين عامودين بيتم تعريف العامود التاني  بهذه الطريقة) 
+
+```django
+from django.db.models import F
+
+data = Product.objects.filter(quantity = F('price'))
+```
+
+##### لعرض كل المنتجات اللي الكمية فيها بتساوي الاي دي في البراند (بينهم علاقة )(المقارنة بين عامودين بيتم تعريف العامود التاني  بهذه الطريقة) 
+
+```django
+from django.db.models import F
+
+data = Product.objects.filter(quantity = F('brand__id'))
+```
+
+
+
+##### <u>Order :</u>
+
+##### لعرض كل المنتجات مرتبة حسب الاسم تنازلي من A to Z 
+
+```django
+data = Product.objects.order_by('name')
+```
+
+##### لعرض كل المنتجات مرتبة حسب الاسم تصاعدي من Z to A 
+
+```django
+data = Product.objects.order_by('-name')
+```
+
+##### ترتيب المنتجات تنازلي من A to Z ثم عرض اول 10 نتائج
+
+```django
+data = Product.objects.order_by('name') [:10]
+```
+
+##### ترتيب المنتجات تنازلي من A to Z ثم عرض اول نتيجة
+
+```django
+data = Product.objects.earliest('name')
+```
+
+##### ترتيب المنتجات تنازلي من A to Z ثم عرض اخر نتيجة
+
+```django
+data = Product.objects.latest('name')
+```
+
+##### لعرض الاسم والسعر فقط في كل المنتجات
+
+```django
+data = Product.objects.values('name','price')  #Return in dictionary
+OR
+data = Product.objects.values_list('name','price') #Return in typle
+```
+
+##### لعرض كل الاعمدة ما عدا الوصف في كل المنتجات
+
+```django
+data = Product.objects.defer('description')
+```
+
+
+
+##### <u>*Lmimit related*</u>
+
+```django
+data = Product.objects.select_related('brand').all() # One To One & One To Many Relation
+data = Product.objects.select_related('brand').all() # Many To Many Relation
+data = Product.objects.select_related('brand').select_related('category').all()
+```
+
+
+
+##### <u>*Aggregation : Count - Min - Max - Sum - AVG*</u>
+
+```django
+from django.db.models.aggregates import Count,Sum,Avg,Max,Min
+
+data = Product.objects.aggregate(
+        myavg = Avg('price'),
+        mycount=Count('id'),
+        mysum=Sum('price'),
+    )
+```
+
+
+
+##### <u>*Annotation :*</u>
+
+```django
+from django.db.models import F
+
+data = Product.objects.annotate(price_with_tax = F('price')*1.14)
 ```
 
